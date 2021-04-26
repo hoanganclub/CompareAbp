@@ -376,7 +376,7 @@ namespace Haha.Web.Controllers
 
         public string GetAppHomeUrl()
         {
-            return Url.Action("Index", "Home");
+            return Url.Action("Index", "About");
         }
 
         #endregion

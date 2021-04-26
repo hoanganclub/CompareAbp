@@ -4,20 +4,22 @@ using Haha.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Haha.Migrations
 {
     [DbContext(typeof(HahaDbContext))]
-    partial class HahaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201112121732_Upgraded_To_ABP_6_0")]
+    partial class Upgraded_To_ABP_6_0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.3");
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("Abp.Application.Editions.Edition", b =>
                 {
@@ -125,10 +127,6 @@ namespace Haha.Migrations
                     b.Property<string>("Exception")
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
-
-                    b.Property<string>("ExceptionMessage")
-                        .HasMaxLength(1024)
-                        .HasColumnType("nvarchar(1024)");
 
                     b.Property<int>("ExecutionDuration")
                         .HasColumnType("int");
@@ -626,8 +624,7 @@ namespace Haha.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EntityFullName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("TenantId")
                         .HasColumnType("int");
@@ -645,9 +642,9 @@ namespace Haha.Migrations
 
             modelBuilder.Entity("Abp.DynamicEntityProperties.DynamicEntityPropertyValue", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .UseIdentityColumn();
 
                     b.Property<int>("DynamicEntityPropertyId")
@@ -687,8 +684,7 @@ namespace Haha.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PropertyName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("TenantId")
                         .HasColumnType("int");
@@ -704,9 +700,9 @@ namespace Haha.Migrations
 
             modelBuilder.Entity("Abp.DynamicEntityProperties.DynamicPropertyValue", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .UseIdentityColumn();
 
                     b.Property<int>("DynamicPropertyId")
